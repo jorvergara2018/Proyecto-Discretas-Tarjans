@@ -16,10 +16,11 @@ import static tarjan.TarjanSccSolverAdjacencyList.createGraph;
 public class Region {
     public ArrayList<Entrenador> Entrenadores;
     public int nEntrenadores;
-    List<List<Integer>> graph;
-    public Region(){
+    public List<List<Integer>> graph;
+    public Region(int k){
         Entrenadores = new ArrayList();
         graph = createGraph(nEntrenadores);
+        nEntrenadores = k;
     }
     
     public void addEntrenadores(Entrenador En){

@@ -16,8 +16,8 @@ public class Entrenador {
     public ArrayList<String> contactos = new ArrayList();
     public boolean sociable;
     
-    public Entrenador (int n){
-        ncontactos= n;
+    public Entrenador (){
+        
         
     }
     

@@ -11,6 +11,7 @@ package tarjan;
 
 
 
+import java.io.IOException;
 import static java.lang.Math.min;
 
 import java.util.*;
@@ -124,34 +125,20 @@ public class TarjanSccSolverAdjacencyList {
 
   /* Example usage: */
 
-  public static void main(String[] arg) {
-    int n = 8;
+  public static void main(String[] arg) throws IOException {
+    
+    
+    
+    Archivos bongus = new Archivos();
+    bongus.Leer();
+    
+    bongus.wea();
+    bongus.llenarRegion();
+    bongus.miRegion.crearConexion();
+    int n = bongus.miRegion.nEntrenadores ;
     List<List<Integer>> graph = createGraph(n);
-
-    addEdge(graph, 0, 7);
-    addEdge(graph, 0, 5);
-    addEdge(graph, 0 , 1);
-    addEdge(graph, 1 , 0);
-    addEdge(graph, 1, 5);
-    addEdge(graph, 2, 6);
-    addEdge(graph, 3, 4);
-    addEdge(graph, 4, 3);    
-    addEdge(graph, 5, 1);
-    addEdge(graph, 5, 3);
-    addEdge(graph, 5, 2);
-    addEdge(graph, 6, 2);
-    addEdge(graph, 6, 5);
-    addEdge(graph, 7, 5);
     
-    Archivos aaaa = new Archivos();
-    aaaa.Leer();
-    
-    for(int i = 0; i< aaaa.misDatos.size(); i = i+1){
-            System.out.println(""+aaaa.misDatos.get(i));
-        }
-    aaaa.wea();
-    
-    TarjanSccSolverAdjacencyList solver = new TarjanSccSolverAdjacencyList(graph);
+   TarjanSccSolverAdjacencyList solver = new TarjanSccSolverAdjacencyList(bongus.miRegion.graph);
 
     int[] sccs = solver.getSccs();
     Map<Integer, List<Integer>> multimap = new HashMap<>();
@@ -169,6 +156,6 @@ public class TarjanSccSolverAdjacencyList {
     for (List<Integer> scc : multimap.values()) {
       System.out.println("Nodes: " + scc + " form a Strongly Connected Component.");
     }
-  }  
+  }
 }
 
