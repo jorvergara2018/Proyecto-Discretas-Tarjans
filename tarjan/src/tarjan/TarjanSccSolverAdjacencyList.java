@@ -143,6 +143,13 @@ public class TarjanSccSolverAdjacencyList {
     addEdge(graph, 6, 5);
     addEdge(graph, 7, 5);
     
+    Archivos aaaa = new Archivos();
+    aaaa.Leer();
+    
+    for(int i = 0; i< aaaa.misDatos.size(); i = i+1){
+            System.out.println(""+aaaa.misDatos.get(i));
+        }
+    aaaa.wea();
     
     TarjanSccSolverAdjacencyList solver = new TarjanSccSolverAdjacencyList(graph);
 
@@ -162,6 +169,6 @@ public class TarjanSccSolverAdjacencyList {
     for (List<Integer> scc : multimap.values()) {
       System.out.println("Nodes: " + scc + " form a Strongly Connected Component.");
     }
-  }
+  }  
 }
 
