@@ -19,7 +19,6 @@ public class Region {
     public List<List<Integer>> graph;
     public Region(int k){
         Entrenadores = new ArrayList();
-        graph = createGraph(nEntrenadores);
         nEntrenadores = k;
     }
     
@@ -33,11 +32,19 @@ public class Region {
         return Entrenadores.get(i);
     }
     
+    public void createGraph(){
+    int n = nEntrenadores;
+    List<List<Integer>> graph = new ArrayList<>(n);
+    for (int i = 0; i < n; i++) graph.add(new ArrayList<>());
+    this.graph = graph;
+  }
+    
     public void crearConexion(){
         for(int i = 0; i < Entrenadores.size(); i++){
             for(int k = i+1; k < Entrenadores.size(); k++ ){
                 for(int j = 0; j < Entrenadores.get(i).ncontactos ; j++ ){
-                if( Entrenadores.get(i).estanConectados(Entrenadores.get(k).nombre) == true && Entrenadores.get(k).sociable == true){
+                if((Entrenadores.get(i).estanConectados(Entrenadores.get(k).nombre) == true && Entrenadores.get(k).sociable == true) || (Entrenadores.get(i).estanConectados(Entrenadores.get(k).nombre) == true && Entrenadores.get(k).sociable == true)){
+              
                     addEdge(graph, j, k);
                 }
             }

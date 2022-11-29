@@ -134,9 +134,10 @@ public class TarjanSccSolverAdjacencyList {
     
     bongus.wea();
     bongus.llenarRegion();
+    bongus.miRegion.createGraph();
     bongus.miRegion.crearConexion();
     int n = bongus.miRegion.nEntrenadores ;
-    List<List<Integer>> graph = createGraph(n);
+
     
    TarjanSccSolverAdjacencyList solver = new TarjanSccSolverAdjacencyList(bongus.miRegion.graph);
 
