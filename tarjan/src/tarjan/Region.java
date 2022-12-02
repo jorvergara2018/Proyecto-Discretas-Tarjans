@@ -16,7 +16,7 @@ import static tarjan.TarjanSccSolverAdjacencyList.createGraph;
 public class Region {
     public ArrayList<Entrenador> Entrenadores;
     public int nEntrenadores;
-    public List<List<Integer>> graph;
+    public List<List<Integer>> grafo;
     public Region(int k){
         Entrenadores = new ArrayList();
         nEntrenadores = k;
@@ -36,8 +36,11 @@ public class Region {
     int n = nEntrenadores;
     List<List<Integer>> graph = new ArrayList<>(n);
     for (int i = 0; i < n; i++) graph.add(new ArrayList<>());
-    this.graph = graph;
+    this.grafo = graph;
   }
+    public List<List<Integer>> getGrafo(){
+    return grafo;
+}
     
     public void crearConexion(){
         for(int i = 0; i < Entrenadores.size(); i++){
@@ -45,7 +48,7 @@ public class Region {
                 for(int j = 0; j < Entrenadores.get(i).ncontactos ; j++ ){
                 if((Entrenadores.get(i).estanConectados(Entrenadores.get(k).nombre) == true && Entrenadores.get(k).sociable == true) || (Entrenadores.get(i).estanConectados(Entrenadores.get(k).nombre) == true && Entrenadores.get(k).sociable == true)){
               
-                    addEdge(graph, j, k);
+                    addEdge(grafo, j, k);
                 }
             }
           }

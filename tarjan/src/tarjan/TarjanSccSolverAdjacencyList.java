@@ -139,7 +139,7 @@ public class TarjanSccSolverAdjacencyList {
     int n = bongus.miRegion.nEntrenadores ;
 
     
-   TarjanSccSolverAdjacencyList solver = new TarjanSccSolverAdjacencyList(bongus.miRegion.graph);
+   TarjanSccSolverAdjacencyList solver = new TarjanSccSolverAdjacencyList(bongus.miRegion.getGrafo());
 
     int[] sccs = solver.getSccs();
     Map<Integer, List<Integer>> multimap = new HashMap<>();
